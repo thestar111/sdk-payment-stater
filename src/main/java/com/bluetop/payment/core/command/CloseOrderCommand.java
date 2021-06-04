@@ -7,11 +7,9 @@
  * 修改单号:  <修改单号>
  * 修改内容:  <修改内容>
  */
-package com.bluetop.payment.core.event;
+package com.bluetop.payment.core.command;
 
 import lombok.Data;
-
-import java.io.Serializable;
 
 /**
  * <一句话功能简述>
@@ -23,15 +21,11 @@ import java.io.Serializable;
  * @since JDK 1.8
  */
 @Data
-public class RefundEvent implements Serializable {
+public class CloseOrderCommand extends Command {
 
-    /** 外部交易ID */
+    /** 外部订单编号 */
     private String outTradeNo;
 
     /** 来源 */
     private String source;
-
-    /** 退款原因 */
-    private String reason;
-
 }

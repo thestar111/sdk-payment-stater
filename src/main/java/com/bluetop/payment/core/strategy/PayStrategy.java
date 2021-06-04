@@ -14,7 +14,7 @@ import com.bluetop.payment.core.strategy.response.PayResponse;
  * @see [相关类/方法]
  * @since JDK 1.8
  */
-public abstract class PayStrategy<T extends PayRequest, R extends PayResponse> {
+public abstract class PayStrategy<T extends PayRequest, PR extends PayResponse> {
 
     /**
      * 支付
@@ -22,7 +22,7 @@ public abstract class PayStrategy<T extends PayRequest, R extends PayResponse> {
      * @param t
      * @return
      */
-    public abstract R pay(T t);
+    public abstract PR pay(T t);
 
     /**
      * 支付类型

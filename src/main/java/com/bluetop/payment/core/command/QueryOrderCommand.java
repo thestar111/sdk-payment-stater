@@ -7,7 +7,7 @@
  * 修改单号:  <修改单号>
  * 修改内容:  <修改内容>
  */
-package com.bluetop.payment.core.event;
+package com.bluetop.payment.core.command;
 
 import lombok.Data;
 
@@ -23,7 +23,7 @@ import java.io.Serializable;
  * @since JDK 1.8
  */
 @Data
-public class QueryOrderEvent implements Serializable {
+public class QueryOrderCommand implements Serializable {
 
     /** 外部订单编号 */
     private String outTradeNo;
