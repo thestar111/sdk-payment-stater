@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.bluetop.payment.core.config.WxPayAutoConfiguration, \
+com.bluetop.payment.core.config.AliPayAutoConfiguration
