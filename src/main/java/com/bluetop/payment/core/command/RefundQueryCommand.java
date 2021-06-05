@@ -9,12 +9,14 @@
  */
 package com.bluetop.payment.core.command;
 
+import com.bluetop.payment.core.cons.type.Channel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
 /**
- * <一句话功能简述>
+ * <申请退款>
  *
  * @author zhouping
  * @version 1.0
@@ -23,5 +25,19 @@ import java.io.Serializable;
  * @since JDK 1.8
  */
 @Data
-public class RefundQueryCommand implements Serializable {
+@EqualsAndHashCode(callSuper = false)
+public class RefundQueryCommand extends Command {
+
+    /** 系统订单号 */
+    private String orderId;
+
+    /** 系统退款单号 */
+    private String refundNo;
+
+    /** 微信退款单号 */
+    private String fundId;
+
+    public RefundQueryCommand(Channel channel) {
+        super(channel);
+    }
 }

@@ -2,10 +2,9 @@ package com.bluetop.payment.core.config;
 
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
-import com.bluetop.payment.core.pay.AliQrCodePay;
-import com.bluetop.payment.core.pay.AliWapPay;
-import com.bluetop.payment.core.pay.AliWebPay;
+import com.bluetop.payment.core.pay.*;
 import com.bluetop.payment.core.storage.InMemoryConfigStorage;
+import com.bluetop.payment.core.strategy.PayCommand;
 import com.bluetop.payment.core.strategy.PayStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -93,5 +92,16 @@ public class AliPayAutoConfiguration {
         inMemoryConfigStorage.setReturnUrl(aliPayProperties.getReturnUrl());
         aliQrCodePay.setLocalConfigStorage(inMemoryConfigStorage);
         return aliQrCodePay;
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Bean
+    @ConditionalOnProperty(name = "alipay.enable", havingValue = "true", matchIfMissing = true)
+    public PayCommand alipayCommand() {
+        PayCommand payCommand = new AliPayCommand();
+        return payCommand;
     }
 }

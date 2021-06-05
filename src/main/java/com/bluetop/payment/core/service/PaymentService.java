@@ -9,6 +9,8 @@
  */
 package com.bluetop.payment.core.service;
 
+import com.bluetop.payment.core.command.*;
+import com.bluetop.payment.core.cons.R;
 import com.bluetop.payment.core.strategy.request.PayRequest;
 import com.bluetop.payment.core.strategy.response.PayResponse;
 
@@ -30,5 +32,32 @@ public interface PaymentService {
      */
     PayResponse pay(PayRequest payRequest);
 
+    /**
+     * 查询订单
+     * @param command
+     * @return
+     */
+    R queryOrder(QueryOrderCommand command);
+
+    /**
+     * 申请退款
+     * @param command
+     * @return
+     */
+    R refund(RefundCommand command);
+
+    /**
+     * 查询申请退款订单信息
+     * @param command
+     * @return
+     */
+    R queryRefundOrder(RefundQueryCommand command);
+
+    /**
+     * 关闭订单
+     * @param command
+     * @return
+     */
+    R closeOrder(CloseOrderCommand command);
 
 }

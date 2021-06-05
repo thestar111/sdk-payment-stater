@@ -2,6 +2,7 @@ package com.bluetop.payment.core.config;
 
 import com.bluetop.payment.core.pay.*;
 import com.bluetop.payment.core.storage.InMemoryConfigStorage;
+import com.bluetop.payment.core.strategy.PayCommand;
 import com.bluetop.payment.core.strategy.PayStrategy;
 import com.github.binarywang.wxpay.config.WxPayConfig;
 import com.github.binarywang.wxpay.service.WxPayService;
@@ -130,5 +131,16 @@ public class WxPayAutoConfiguration {
         inMemoryConfigStorage.setReturnUrl(wxPayProperties.getReturnUrl());
         nativePay.setLocalConfigStorage(inMemoryConfigStorage);
         return nativePay;
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Bean
+    @ConditionalOnProperty(name = "wxpay.enable", havingValue = "true", matchIfMissing = true)
+    public PayCommand wxpayCommand() {
+        PayCommand payCommand = new WxPayCommand();
+        return payCommand;
     }
 }

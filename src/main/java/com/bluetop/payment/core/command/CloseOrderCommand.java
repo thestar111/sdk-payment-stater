@@ -9,6 +9,7 @@
  */
 package com.bluetop.payment.core.command;
 
+import com.bluetop.payment.core.cons.type.Channel;
 import lombok.Data;
 
 /**
@@ -23,9 +24,11 @@ import lombok.Data;
 @Data
 public class CloseOrderCommand extends Command {
 
-    /** 外部订单编号 */
-    private String outTradeNo;
-
-    /** 来源 */
-    private String source;
+    /**
+     *
+     * @param channel
+     */
+    public CloseOrderCommand(Channel channel) {
+        super(channel);
+    }
 }

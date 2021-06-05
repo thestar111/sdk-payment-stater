@@ -18,6 +18,9 @@ public enum IErrorCode {
     /** 成功 */
     SUCCESS(0, "SUCCESS."),
 
+    /** 成功 */
+    FAIL(-1, "FAILED."),
+
     /** 系统异常 */
     SYSTEM_ERROR(9999, "System error."),
 

@@ -9,9 +9,12 @@
  */
 package com.bluetop.payment.core.command;
 
+import com.bluetop.payment.core.cons.type.Channel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * <一句话功能简述>
@@ -23,15 +26,23 @@ import java.io.Serializable;
  * @since JDK 1.8
  */
 @Data
-public class RefundCommand implements Serializable {
+@EqualsAndHashCode(callSuper = false)
+public class RefundCommand extends Command {
 
-    /** 外部交易ID */
-    private String outTradeNo;
+    /** 系统订单号 */
+    private String orderId;
 
-    /** 来源 */
-    private String source;
+    /** 总金额 : 分*/
+    private BigDecimal totalFee;
 
     /** 退款原因 */
     private String reason;
 
+    /**
+     *
+     * @param channel
+     */
+    public RefundCommand(Channel channel) {
+        super(channel);
+    }
 }

@@ -1,5 +1,6 @@
 package com.bluetop.payment.core.strategy.request;
 
+import com.bluetop.payment.core.cons.type.PayType;
 import com.bluetop.payment.core.pay.domain.H5_info;
 import lombok.Data;
 
@@ -52,7 +53,7 @@ public class PayRequest implements Serializable {
     private String expireTime;
 
     /** 支付类型 JSAPI、MWEB、ALIWAP {@linkplain com.bluetop.payment.core.cons.type.PayType} */
-    private String payType;
+    private PayType payType;
 
     /**
      * 过期时长

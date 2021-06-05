@@ -9,9 +9,11 @@
  */
 package com.bluetop.payment.core.command;
 
+import com.bluetop.payment.core.cons.type.Channel;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * <事件对象>
@@ -25,7 +27,23 @@ import java.io.Serializable;
 @Data
 public class Command implements Serializable {
 
+    /** 外部订单编号 */
     private String outTradeNo;
 
-    private String source;
+    /** 渠道 */
+    private Channel channel;
+
+    /** 金额: 分 */
+    private BigDecimal amount;
+
+    /** 外部请求编号 */
+    private String outRequestNo;
+
+    /**
+     *
+     * @param channel
+     */
+    public Command(Channel channel) {
+        this.channel = channel;
+    }
 }

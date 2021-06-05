@@ -9,7 +9,9 @@
  */
 package com.bluetop.payment.core.command;
 
+import com.bluetop.payment.core.cons.type.Channel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
@@ -23,12 +25,17 @@ import java.io.Serializable;
  * @since JDK 1.8
  */
 @Data
-public class QueryOrderCommand implements Serializable {
+@EqualsAndHashCode(callSuper = false)
+public class QueryOrderCommand extends Command {
 
-    /** 外部订单编号 */
-    private String outTradeNo;
+    /** 系统内订单号 */
+    private String orderId;
 
-    /** 来源 */
-    private String source;
-
+    /**
+     *
+     * @param channel
+     */
+    public QueryOrderCommand(Channel channel) {
+        super(channel);
+    }
 }
